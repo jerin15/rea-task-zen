@@ -4,9 +4,12 @@ import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-import { LogOut, Bot } from "lucide-react";
+import { LogOut } from "lucide-react";
 import { AppRole } from "@/types/tasks";
 import KanbanBoard from "@/components/KanbanBoard";
+import TaskAssistant from "@/components/TaskAssistant";
+import ExportReports from "@/components/ExportReports";
+import logo from "@/assets/rea-logo.png";
 
 const Dashboard = () => {
   const [userRole, setUserRole] = useState<AppRole | null>(null);
@@ -84,6 +87,7 @@ const Dashboard = () => {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
+              <img src={logo} alt="REA Advertising" className="h-12 w-auto" />
               <h1 className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
                 R-EAsiness
               </h1>
@@ -104,10 +108,8 @@ const Dashboard = () => {
               )}
             </div>
             <div className="flex items-center gap-2">
-              <Button variant="outline" size="sm" className="gap-2">
-                <Bot className="h-4 w-4" />
-                AI Assistant
-              </Button>
+              <TaskAssistant userId={userId} userRole={selectedRole} />
+              {isAdmin && <ExportReports />}
               <Button variant="outline" size="sm" onClick={handleLogout} className="gap-2">
                 <LogOut className="h-4 w-4" />
                 Logout

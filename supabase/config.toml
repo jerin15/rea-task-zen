@@ -1,1 +1,7 @@
 project_id = "xcvdxydvcsjkpptyvqws"
+
+[functions.lovable-ai-relay]
+verify_jwt = false
+
+[functions.task-assistant]
+verify_jwt = false
