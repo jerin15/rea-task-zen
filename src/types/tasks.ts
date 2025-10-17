@@ -20,11 +20,11 @@ export interface Task {
 export const ROLE_PIPELINES: Record<AppRole, string[]> = {
   estimation: [
     'TO DO LIST',
-    'IN PROGRESS',
-    'PENDING QUOTATIONS',
-    'APPROVED QUOTATION',
-    'TAX INVOICE',
-    'PO PENDING',
+    'SUPPLIER QUOTES PENDING',
+    'CLIENT APPROVAL PENDING',
+    'QUOTATION BILL RAISED',
+    'AWAITING PO',
+    'FINAL INVOICE RAISED',
     'DONE'
   ],
   designer: [
